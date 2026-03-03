@@ -3,7 +3,7 @@
  * Status: Final stable version (Positioning only).
  * Logic: Slides "link" events to touch "anchor" events. No color changes.
  */
-function calendarBlockManager() {
+function CalendarBlockManager() {
   const calendar = CalendarApp.getDefaultCalendar();
   const startSearch = new Date();
   startSearch.setHours(0,0,0,0); 
