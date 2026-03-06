@@ -8,7 +8,7 @@
     "gas:status": "clasp status",
     "gas:pull": "clasp pull",
     "gas:push": "clasp push",
-    "gas:open": "clasp open",
+    "gas:open": "clasp open-script",
     "git:status": "git status",
     "git:sync": "git add . && git commit -m \"chore: sync local changes\" && git push"
   }
