@@ -121,5 +121,18 @@ npm test
 
 ---
 
+## 🤖 Automation
+
+- Pre-push local test gate (repo-managed git hook)
+    - One-time setup: `npm run setup:hooks`
+    - After setup, every `git push` runs `npm run check:full` automatically.
+- One-command deploy from local
+    - `npm run deploy:all`
+    - Runs: tests -> GAS push -> git push
+- GitHub CI
+    - `.github/workflows/ci.yml` runs `npm test` on every push to `main` and every pull request.
+
+---
+
 ## 📄 License
 Distributed under the MIT License.

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Block pushes when local tests fail.
+echo "[pre-push] Running local checks..."
+npm run check:full
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo "[pre-push] Checks failed. Push aborted."
+  exit $status
+fi
+
+echo "[pre-push] Checks passed. Continuing push."
+exit 0

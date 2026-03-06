@@ -40,13 +40,25 @@ npm run git:sync
 ```
 
 ## NPM Helper Commands
+- `npm run setup:hooks` - Configure git to use repo-managed hooks in `.githooks`
+- `npm run check:full` - Run local full checks (currently `npm test`)
 - `npm run gas:status` - Show clasp-tracked files
 - `npm run gas:pull` - Pull from Apps Script to local
 - `npm run gas:push` - Push local to Apps Script
 - `npm run gas:open` - Open Apps Script project in browser
+- `npm run deploy:all` - Test, push to GAS, then push to GitHub
 - `npm run git:status` - Show git status
 - `npm run git:sync` - Add, commit, and push local changes
 - `npm test` - Run local mock scheduling tests
+
+## One-Time Setup
+Run this once per clone:
+
+```powershell
+npm run setup:hooks
+```
+
+This enables the repo hook so `git push` is blocked when checks fail.
 
 ## Configuration Workflow
 1. In Apps Script editor, run `setDefaultScriptProperties` once.
