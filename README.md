@@ -34,6 +34,11 @@ This script creates a physical relationship between an **Anchor** (the engine) a
     * **Interval:** `Every minute`
 6. (Optional, recommended) Run `setDefaultScriptProperties` once from the Apps Script editor to seed configurable defaults.
 
+### Optional Safe Trigger
+
+Use `CalendarBlockManagerDryRun` as a separate trigger function when you want a permanent preview-only schedule check.
+This function always logs planned moves and never applies event time changes.
+
 ---
 
 ## 📋 How to Use

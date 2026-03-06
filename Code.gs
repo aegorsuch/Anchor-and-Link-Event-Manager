@@ -12,6 +12,20 @@ const DEFAULT_SKIP_TAGS = ["#fixed"];
  * Train logic: for each tagged anchor, snap same-day tagged link events behind it.
  */
 function CalendarBlockManager() {
+  return executeCalendarBlockManager({ forceDryRun: false });
+}
+
+/**
+ * Safe preview mode: logs planned moves without applying event time changes.
+ * Useful for a dedicated dry-run trigger.
+ */
+function CalendarBlockManagerDryRun() {
+  return executeCalendarBlockManager({ forceDryRun: true });
+}
+
+function executeCalendarBlockManager(options) {
+  options = options || {};
+
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(30000)) {
     Logger.log("Skipped run: another trigger execution is still active.");
@@ -20,6 +34,9 @@ function CalendarBlockManager() {
 
   try {
     const config = loadConfiguration();
+    if (options.forceDryRun) {
+      config.dryRun = true;
+    }
     const calendar = getCalendar(config.calendarId);
     const timeZone = Session.getScriptTimeZone();
     const startSearch = new Date();

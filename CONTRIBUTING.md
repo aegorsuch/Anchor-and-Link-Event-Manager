@@ -54,6 +54,10 @@ npm run git:sync
 3. Use `CBM_DRY_RUN=true` when validating new routine/tag setups.
 4. Set `CBM_DRY_RUN=false` after logs look correct.
 
+## Trigger Options
+- `CalendarBlockManager` - normal runtime (respects `CBM_DRY_RUN` property)
+- `CalendarBlockManagerDryRun` - always preview mode (ignores and overrides property to dry-run)
+
 ## Safe Sync Rules
 - Run `npm run gas:pull` before editing if you made script changes in the Apps Script web editor.
 - Run `git pull` before `npm run git:sync` when collaborating.
