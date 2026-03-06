@@ -1,11 +1,9 @@
-jobs:
 name: CI
 on:
   push:
     branches:
       - main
   pull_request:
-jobs:
   policy-checks:
     runs-on: ubuntu-latest
     steps:
